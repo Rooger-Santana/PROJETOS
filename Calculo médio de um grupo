@@ -1,0 +1,41 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    string nome, sexo;
+    float altura, alturamax = 0, alturamin = 0, media = 0;
+    int grupo;
+ 
+    cout << "Digite quantas pessoas têm no seu grupo (mínimo: 1):\n";
+    cin >> grupo;
+
+    for (int i = 1; i <= grupo; i++) {
+        cout << "\nDigite seu nome:\n";
+        cin >> nome;
+        cout << "Digite seu sexo (M/F ou Masculino/Feminino):\n";
+        cin >> sexo;
+        cout << "Digite sua altura:\n";
+        cin >> altura;
+
+        media += altura;
+
+        if (i == 1) {
+            alturamax = altura;
+            alturamin = altura;
+        } else {
+            if (altura > alturamax) {
+                alturamax = altura;
+            }
+            if (altura < alturamin) {
+                alturamin = altura;
+            }
+        }
+    }
+
+    cout << "A media e: " << media / grupo << "\n";
+    cout << "A maior altura e: " << alturamax << "\n";
+    cout << "A menor altura e: " << alturamin << "\n";
+
+    system("pause");
+    return 0;
+}
